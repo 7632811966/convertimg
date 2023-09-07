@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>
+        convert image into string using JavaScript ?
+    </title>
+</head>
+ 
+<body>
+    <input type="file" name="" id="fileId" onchange="imageUploaded()">
+    <br><br>
+ 
+    <button onclick="displayString()">
+        Display String
+    </button>
+    <script>
+        let String = "";
+ 
+        function imageUploaded() {
+            let file = document.querySelector(
+                'input[type=file]')['files'][0];
+ 
+            let reader = new FileReader();
+            console.log("next");
+ 
+            reader.onload = function () {
+                String = reader.result.replace("data:", "")
+                    .replace(/^.+,/, "");
+ 
+                imageStringsep = String;
+ 
+                 alert(imageStringsep);
+                console.log(String);
+            }
+            reader.readAsDataURL(file);
+        }
+ 
+        function displayString() {
+            console.log("String about to be printed");
+            alert(String);
+        }
+ 
+    </script>
+</body>
+</html>
